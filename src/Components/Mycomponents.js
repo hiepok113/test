@@ -4,16 +4,22 @@ import Displayinfo from './Displayinfo';
 
 
 class Mycomponents extends React.Component {
-  
+  state = {
+    listUser: [
+      { id: 1, name: "NTH", age: "30" },
+      { id: 2, name: "hiep", age: "12" },
+      { id: 3, name: "hoa", age: "29" }
+
+    ]
+  }
+
   render() {
-    const {name , age} = this.props;
+
     return (
       <div>
-        <Userinfor/>
+        <Userinfor />
         <br></br>
-        <Displayinfo name="NTH" age= "30"/>
-        <hr></hr>
-        <Displayinfo name="Hiep" age= "21"/>
+        <Displayinfo listUser={this.state.listUser} />
       </div>
     );
   }
