@@ -1,36 +1,42 @@
 import React from "react";
 
 class Displayinfo extends React.Component {
+    state = {
+        isShowListUser: true
+    }
+
+    handleShowHide = () => {
+        this.setState({
+            isShowListUser: !this.state.isShowListUser
+        })
+    }
     render() {
         const { listUser } = this.props;
-        console.log(listUser)
+
 
         return (
             <div>
-                {listUser.map((user) => {
+                <div>
+                    <span onClick={() => { this.handleShowHide() }}>
+                        {this.state.isShowListUser === true ? " Hide list users :" : " Show list users :"}
+                    </span>
 
-                    return (
-                        <div key={user.id}>
-                            <div> My name is {user.name} </div>
-                            <div> My old  is {user.age} </div>
-                            <hr />
+                </div>
+                {this.state.isShowListUser &&
+                    <div>
+                        {listUser.map((user) => {
+                            return (
+                                <div key={user.id} className={+user.age >= 18 ? "green" : "red"}>
+                                    <div> My name is {user.name} </div>
+                                    <div> My old  is {user.age} </div>
+                                    <hr />
 
-                        </div>
-                    )
+                                </div>
+                            )
 
-
-
-                })}
-                {/* <div>My name is {name}</div>
-                <div>My age is {age}</div>
-                <hr />
-                <div>My name is {name}</div>
-                <div>My age is {age}</div>
-                <hr />
-                <div>My name is {name}</div>
-                <div>My age is {age}</div> */}
-
-
+                        })}
+                    </div>
+                }
             </div>
         )
     }
