@@ -1,5 +1,5 @@
 import React from 'react';
-import Userinfor from './Userinfor';
+import AddUserinfor from './AddUserinfor';
 import Displayinfo from './Displayinfo';
 
 
@@ -12,14 +12,24 @@ class Mycomponents extends React.Component {
 
     ]
   }
+  handleAddNewUser = (userObj) => {
+    console.log(userObj);
+    this.setState({
+      listUser: [userObj, ...this.state.listUser]
+    })
+  }
 
   render() {
 
     return (
       <div>
-        <Userinfor />
+        <AddUserinfor handleAddNewUser={this.handleAddNewUser}
+        />
         <br></br>
-        <Displayinfo listUser={this.state.listUser} />
+        <Displayinfo
+          listUser={this.state.listUser}
+
+        />
       </div>
     );
   }
