@@ -1,0 +1,153 @@
+/* General Container */
+.profile-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #0b3d91;
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Info in Sidebar */
+.profile-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid white;
+}
+
+.profile-info h3 {
+  font-size: 18px;
+  margin: 5px 0;
+  color: #fff;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  margin: 10px 0;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar nav ul li:hover {
+  background-color: #1455a1;
+}
+
+.sidebar nav ul li.active {
+  background-color: #1455a1;
+  font-weight: bold;
+}
+
+.sidebar nav ul li .right-space {
+  margin-left: auto; /* Pushes the space to the right */
+  width: 30px;
+  height: 1px;
+  background-color: transparent;
+}
+
+.sidebar nav ul li.active .right-space {
+  background-color: #fff; /* Display space when active */
+}
+
+/* Main Content */
+.profile-content {
+  flex: 1;
+  padding: 30px;
+  background-color: #f5f5f5;
+}
+
+.profile-form {
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-form h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.profile-form form label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.profile-form form label input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.profile-form form label input[type="file"] {
+  padding: 5px;
+}
+
+/* Form Actions */
+.form-actions {
+  margin-top: 20px;
+}
+
+.form-actions button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-actions button[type="submit"] {
+  background-color: #0b3d91;
+  color: white;
+}
+
+.form-actions button[type="button"]:nth-child(2) {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.form-actions button[type="button"]:nth-child(3) {
+  background-color: #dc3545;
+  color: white;
+}
+
+.form-actions button:hover {
+  opacity: 0.8;
+}
+
+/* Orders Content */
+.orders-content {
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

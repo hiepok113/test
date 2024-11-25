@@ -21,8 +21,10 @@ class Mycomponents extends React.Component {
 
   render() {
 
+    
     return (
-      <div>
+      <>
+      <div className='a'>
         <AddUserinfor handleAddNewUser={this.handleAddNewUser}
         />
         <br></br>
@@ -31,6 +33,10 @@ class Mycomponents extends React.Component {
 
         />
       </div>
+      <div className='b'>
+
+      </div>
+      </>
     );
   }
 }
