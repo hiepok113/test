@@ -1,153 +1,200 @@
-/* General Container */
+/* Container chung cho cả trang */
 .profile-container {
   display: flex;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  color: #333;
+  padding: 20px;
 }
 
 /* Sidebar */
 .sidebar {
   width: 250px;
-  background-color: #0b3d91;
-  color: white;
+  background-color: #f4f4f4;
   padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Profile Info in Sidebar */
 .profile-info {
   text-align: center;
   margin-bottom: 20px;
 }
 
 .profile-avatar {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 10px;
-  border: 2px solid white;
 }
 
-.profile-info h3 {
-  font-size: 18px;
-  margin: 5px 0;
-  color: #fff;
+.sidebar h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
 }
 
-.sidebar nav ul {
+nav ul {
   list-style: none;
   padding: 0;
 }
 
-.sidebar nav ul li {
-  margin: 10px 0;
-  padding: 10px 15px;
-  border-radius: 4px;
+nav ul li {
+  padding: 10px;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #555;
   transition: background-color 0.3s;
-  display: flex;
-  align-items: center;
 }
 
-.sidebar nav ul li:hover {
-  background-color: #1455a1;
+nav ul li:hover,
+nav ul li.active {
+  background-color: #007bff;
+  color: white;
 }
 
-.sidebar nav ul li.active {
-  background-color: #1455a1;
-  font-weight: bold;
-}
-
-.sidebar nav ul li .right-space {
-  margin-left: auto; /* Pushes the space to the right */
-  width: 30px;
-  height: 1px;
-  background-color: transparent;
-}
-
-.sidebar nav ul li.active .right-space {
-  background-color: #fff; /* Display space when active */
+nav ul li span {
+  font-size: 12px;
+  color: #ff4747;
+  margin-left: 5px;
 }
 
 /* Main Content */
 .profile-content {
-  flex: 1;
-  padding: 30px;
-  background-color: #f5f5f5;
-}
-
-.profile-form {
-  background-color: white;
-  padding: 20px 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.profile-form h1 {
-  margin-bottom: 20px;
-  font-size: 24px;
-}
-
-.profile-form form label {
-  display: block;
-  margin-bottom: 15px;
-}
-
-.profile-form form label input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-
-.profile-form form label input[type="file"] {
-  padding: 5px;
-}
-
-/* Form Actions */
-.form-actions {
-  margin-top: 20px;
-}
-
-.form-actions button {
-  padding: 10px 15px;
-  margin-right: 10px;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.form-actions button[type="submit"] {
-  background-color: #0b3d91;
-  color: white;
-}
-
-.form-actions button[type="button"]:nth-child(2) {
-  background-color: #f5f5f5;
-  color: #333;
-  border: 1px solid #ccc;
-}
-
-.form-actions button[type="button"]:nth-child(3) {
-  background-color: #dc3545;
-  color: white;
-}
-
-.form-actions button:hover {
-  opacity: 0.8;
-}
-
-/* Orders Content */
-.orders-content {
+  flex-grow: 1;
+  margin-left: 20px;
   padding: 20px;
   background-color: white;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.profile-form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.profile-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.profile-form input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.profile-form .form-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-form button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.profile-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Quản lý đơn hàng */
+.orders-content {
+  padding: 20px;
+}
+
+.orders-content h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.order-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 150px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-item-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.order-item-info h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.order-item-info p {
+  margin: 0;
+  font-size: 12px;
+  color: #007bff;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .profile-content {
+    margin-left: 0;
+  }
+
+  .order-list {
+    justify-content: center;
+  }
+
+  .order-item {
+    width: 120px;
+    margin-right: 10px;
+  }
+
+  .order-item-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .profile-form {
+    width: 100%;
+  }
 }

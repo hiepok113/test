@@ -1,16 +1,26 @@
 import React, { useState } from "react";
 import "./Userprofile.css";
+import users from "./user";  // Giữ nguyên thông tin user
+import products from "./products";  // Import dữ liệu sản phẩm từ file product.js
 
 const UserProfile = () => {
+  const defaultUser = users[0];
+
   const [form, setForm] = useState({
-    firstName: "John",
-    lastName: "Doe",
-    phoneNumber: "",
-    email: "",
-    avatar: null, // Avatar file
+    firstName: defaultUser.firstName || "",
+    lastName: defaultUser.lastName || "",
+    phoneNumber: defaultUser.phoneNumber || "",
+    email: defaultUser.email || "",
+    avatar: defaultUser.avatar || null,
   });
 
-  const [activeTab, setActiveTab] = useState("profile"); // State to handle active tab
+  const [activeTab, setActiveTab] = useState("profile");
+
+  const [sidebarInfo, setSidebarInfo] = useState({
+    firstName: defaultUser.firstName || "",
+    lastName: defaultUser.lastName || "",
+    avatar: defaultUser.avatar || null,
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,18 +34,14 @@ const UserProfile = () => {
     }
   };
 
-  const handleReset = () => {
-    setForm({
-      firstName: "John",
-      lastName: "Doe",
-      phoneNumber: "",
-      email: "",
-      avatar: null,
-    });
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSidebarInfo({
+      firstName: form.firstName,
+      lastName: form.lastName,
+      avatar: form.avatar,
+    });
+
     alert("Profile saved successfully!");
     console.log("Submitted data:", form);
   };
@@ -46,15 +52,18 @@ const UserProfile = () => {
 
   return (
     <div className="profile-container">
+      
       {/* Sidebar */}
       <aside className="sidebar">
         <div className="profile-info">
           <img
-            src={form.avatar || "https://via.placeholder.com/100"}
+            src={sidebarInfo.avatar}
             alt="User Avatar"
             className="profile-avatar"
           />
-          <h3>{form.firstName || "First Name"} {form.lastName || "Last Name"}</h3>
+          <h3>
+            {sidebarInfo.firstName} {sidebarInfo.lastName} 
+          </h3>
         </div>
         <nav>
           <ul>
@@ -69,7 +78,7 @@ const UserProfile = () => {
               onClick={() => handleTabChange("orders")}
             >
               Quản lý đơn hàng
-              {activeTab === "orders" && <span className="right-space"></span>} {/* Display space if selected */}
+              {activeTab === "orders" && <span className="right-space"></span>}
             </li>
           </ul>
         </nav>
@@ -128,12 +137,6 @@ const UserProfile = () => {
 
               <div className="form-actions">
                 <button type="submit">Save</button>
-                <button type="button" onClick={handleReset}>
-                  Reset
-                </button>
-                <button type="button" onClick={() => alert("Cancelled!")}>
-                  Cancel
-                </button>
               </div>
             </form>
           </div>
@@ -141,8 +144,22 @@ const UserProfile = () => {
 
         {activeTab === "orders" && (
           <div className="orders-content">
-            {/* Content for Orders (empty for now) */}
-            <p>No orders to display</p>
+            <h2>My Orders</h2>
+            <div className="order-list">
+              {products.map((product) => (
+                <div key={product.id} className="order-item">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="order-item-image"
+                  />
+                  <div className="order-item-info">
+                    <h4>{product.name}</h4>
+                    <p>{product.price}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </main>
